@@ -30,11 +30,11 @@ void zero_crosss_int()  //function to be fired at the zero crossing to dim the l
                       // (10000us - 10us) / 128 = 75 (Approx) For 60Hz =>65
   
   volatile int dimtime = (75*dimming);    // For 60Hz = 65    
-  delayMicroseconds(dimtime);    // Wait till firing the TRIAC    
-  digitalWrite(LOAD, HIGH);   // Fire the TRIAC
-  delayMicroseconds(10);         // triac On propogation delay 
-         // (for 60Hz use 8.33) Some Triacs need a longer period
-  digitalWrite(LOAD, LOW);    // No longer trigger the TRIAC (the next zero crossing will swith it off) TRIAC
+  delayMicroseconds(dimtime);             // (off cycle)Wait till firing the TRIAC    
+  digitalWrite(LOAD, HIGH);               // Fire the TRIAC
+  delayMicroseconds(10);                  // triac On propogation delay 
+                                          // (for 60Hz use 8.33) Some Triacs need a longer period
+  digitalWrite(LOAD, LOW);               // No longer trigger the TRIAC (the next zero crossing will swith it off) TRIAC
   
 }
 ICACHE_RAM_ATTR void setup() {
