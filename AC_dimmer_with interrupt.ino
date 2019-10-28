@@ -46,7 +46,7 @@ ICACHE_RAM_ATTR void setup() {
 void loop() 
 {
   Blynk.run();
-  dimming=mapSlider_Value, 0, 100, 128, 8);   // at lower values than 8 , flickering may start at 100% so keeping it 8 for avoiding flickering
+  dimming=map(Slider_Value, 0, 100, 128, 8);   // at lower values than 8 , flickering may start at 100% so keeping it 8 for avoiding flickering
     delay(10);
     //Serial.println(Slider_Value); 
   
